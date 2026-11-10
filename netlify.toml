@@ -1,0 +1,11 @@
+# Twikoo 部署在 Netlify 时，给函数接口加跨域(CORS)响应头
+# 作用：让你的博客(www.9niu.top)能跨子域调用 twikoo.9niu.top 的评论接口
+# 位置：放到 Twikoo 仓库【根目录】，与 package.json 同级，提交后 Netlify 自动重部署
+
+[[headers]]
+  for = "/.netlify/functions/twikoo"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization, X-Requested-With"
+    Access-Control-Max-Age = "86400"
